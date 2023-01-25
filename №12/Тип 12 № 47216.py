@@ -16,5 +16,3 @@ for n in range(0, 100):
     if flg:
         print(b, n)
 
-
-
