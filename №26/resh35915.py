@@ -1,20 +1,20 @@
 f = open('26 .35915.txt')
-s = int(f.readline())
-mass = []
-mass1 = []
-for i in range(s):
-    a = int(f.readline())
-    mass.append(a)
-    if a % 2 != 0:
-        mass1.append(a)
-print(len(mass1))
+all_nums = int(f.readline())
+nums = [int(i) for i in f]
+nums_ne = []
+
+nums.sort()
+nums_ne.sort()
+
+for i in nums:
+    if i % 2 != 0:
+        nums_ne.append(i)
+print(len(nums_ne))
 cnt = 0
-mmx = 0
-for i in range(len(mass1) - 1):
-    for j in range(i+1, len(mass1) - 1):
-        if (mass1[i] + mass1[j]) % 2 == 0:
-            if (mass1[i] + mass1[j])/2 in mass:
-                cnt += 1
-                mmx = max(mmx, (mass1[i] + mass1[j])/2)
-print(cnt, mmx)
+for i in range(len(nums_ne) - 1):
+    for j in range(i+1, len(nums_ne)):
+        if (nums_ne[i] + nums_ne[j] // 2) in nums:
+            cnt += 1
+print(cnt)
+
 
